@@ -12,7 +12,10 @@ body {
 
   /* colors */
   --main-color: #96025e;
+  --main-color_light: rgba(150, 2, 94, 0.8);
+  --green-sucess: #0be124;
   --white: #fff;
+  --lightWhite: rgba(255, 255, 255, 0.7);
   --black: #262626;
 }
 html {
