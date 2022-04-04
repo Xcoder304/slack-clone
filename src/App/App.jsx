@@ -18,7 +18,7 @@ const App = () => {
         <div className="app__body">
           <SideBar />
           <Routes>
-            <Route path="/chats/:channels" element={<Chats />} />
+            <Route path="/chats/:channelsID" element={<Chats />} />
           </Routes>
         </div>
       </div>

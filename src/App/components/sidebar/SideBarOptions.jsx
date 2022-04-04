@@ -2,14 +2,7 @@ import React from "react";
 
 import { db } from "../../firebase/db";
 
-import {
-  collection,
-  query,
-  onSnapshot,
-  orderBy,
-  serverTimestamp,
-  addDoc,
-} from "firebase/firestore";
+import { collection, serverTimestamp, addDoc } from "firebase/firestore";
 
 import { useNavigate } from "react-router-dom";
 

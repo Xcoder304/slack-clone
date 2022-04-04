@@ -1,4 +1,72 @@
 .chats {
   flex: 0.8;
-  border: 1px solid red;
+}
+.chat__header {
+  width: 100%;
+  padding: 12px 4%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+}
+
+.chat__header > .header__headerRight {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.chat__header .header__headerRight > .icon {
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+.chat__header > .header__headerLeft {
+  display: flex;
+  flex: 0.1;
+  gap: 2px;
+  align-items: center;
+}
+
+/* message */
+
+.chat__message {
+  width: 100%;
+  margin-top: 35px;
+  padding: 0 3%;
+}
+.chat__message > .message__info {
+  max-width: 500px;
+  width: 65vw;
+  padding: 10px 0;
+  background: #f7f7f7;
+  border: none;
+  border-radius: 6px;
+}
+.message__info .message__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.message__top > .messages__userInfo {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 16px;
+}
+.messages__userInfo > .message__userProfile {
+  cursor: pointer;
+}
+.messages__userInfo > .message__username {
+  font-size: 1.1rem;
+  color: var(--black);
+  font-weight: 600;
+}
+.message__top > .message__date {
+  margin-right: 20px;
+}
+.message__info > .message__text {
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 5px 2% 0 5%;
 }

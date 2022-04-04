@@ -21,6 +21,7 @@ import {
   orderBy,
   serverTimestamp,
 } from "firebase/firestore";
+import { Link } from "react-router-dom";
 
 const SideBar = () => {
   const [channels, setchannels] = useState([]);
@@ -41,7 +42,9 @@ const SideBar = () => {
 
       <hr className="divder" />
       <div className="sidebar__sidebarOptionContainer">
-        <SideBarOptions Icon={IoHome} title={"Home"} />
+        <Link to="/">
+          <SideBarOptions Icon={IoHome} title={"Home"} />
+        </Link>
         <SideBarOptions Icon={FaRegCommentDots} title={"All Tags"} />
         <SideBarOptions Icon={IoSettingsOutline} title={"Setting"} />
         <SideBarOptions Icon={BsThreeDotsVertical} title={"More"} />
@@ -51,12 +54,18 @@ const SideBar = () => {
         <div className="sidebarOptionContainer__chennals">
           <SideBarOptions Icon={MdAdd} AddIcon={MdAdd} title={"Add Chennels"} />
           {/* Add icons */}
-
-          {channels.map(({ id, data: { name } }) => {
-            return (
-              <SideBarOptions key={id} id={id} Icon={FaHashtag} title={name} />
-            );
-          })}
+          <div className="channels__wapper">
+            {channels.map(({ id, data: { name } }) => {
+              return (
+                <SideBarOptions
+                  key={id}
+                  id={id}
+                  Icon={FaHashtag}
+                  title={name}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>

@@ -67,6 +67,16 @@
   padding: 10px 0;
   user-select: none;
 }
+.channels__wapper {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.channels__wapper::-webkit-scrollbar {
+  display: none;
+}
 .sidebar__sidebarOptionContainer .sidebarOption {
   display: flex;
   align-items: center;
