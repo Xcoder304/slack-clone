@@ -15,7 +15,6 @@ import "../Styles/header.css";
 const Header = () => {
   const [{ user }, dispatch] = ContextVal();
 
-  console.log(user.user.photoURL);
   return (
     <header className="header">
       <div className="header__userAvatar">

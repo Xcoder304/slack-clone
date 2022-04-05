@@ -26,9 +26,14 @@ const Chats = () => {
   const [ChannelsInfo, setchannelsInfo] = useState([]);
   const [channelMessages, setchannelMessages] = useState([]);
   const [userMessage, setUsermessage] = useState("");
+  const [userInfo, setUserinfo] = useState([]);
+
+  console.log("userInfo", userInfo);
+  console.log("channelMessages", channelMessages);
 
   const [{ user }, dispatch] = ContextVal();
 
+  // for getting the name of current channel
   useEffect(() => {
     if (channelsID) {
       const unsub = onSnapshot(doc(db, "channels", channelsID), (doc) => {
@@ -39,6 +44,7 @@ const Chats = () => {
     }
   }, [channelsID]);
 
+  //for displaying the messages from channel
   useEffect(() => {
     if (channelsID) {
       const collectionRef = collection(db, "channels", channelsID, "messages");
@@ -51,6 +57,7 @@ const Chats = () => {
     }
   }, [channelsID]);
 
+  // adding new message in the database
   const AddMessage = (e) => {
     e.preventDefault();
 
@@ -59,6 +66,7 @@ const Chats = () => {
         text: userMessage,
         time: serverTimestamp(),
         username: user.user.displayName,
+        userprofile: user.user.photoURL,
       });
 
       setUsermessage("");
@@ -84,16 +92,20 @@ const Chats = () => {
       {/* messages */}
 
       <div className="chat__message">
-        {channelMessages.map(({ id, data: { text, time, username } }) => {
-          return (
-            <ChatMessages
-              key={id}
-              text={text}
-              time={time}
-              username={username}
-            />
-          );
-        })}
+        {channelMessages.map(
+          ({ id, data: { text, time, username, userprofile } }) => {
+            return (
+              <ChatMessages
+                key={id}
+                text={text}
+                time={time}
+                username={username}
+                userprofile={userprofile}
+                channelsID={channelsID}
+              />
+            );
+          }
+        )}
 
         {/* add chat */}
         <div className="chat__addChat">

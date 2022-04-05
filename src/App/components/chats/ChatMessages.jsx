@@ -1,17 +1,14 @@
 import React from "react";
 import Avatar from "@mui/material/Avatar";
-import { ContextVal } from "../../context/Context";
 
-const ChatMessages = ({ text, time, username }) => {
-  const [{ user }, dispatch] = ContextVal();
-
+const ChatMessages = ({ text, time, username, userprofile }) => {
   return (
     <div className="message__info">
       <div className="message__top">
         <div className="messages__userInfo">
           <Avatar
-            alt={user?.user?.displayName}
-            src={user?.user?.photoURL}
+            alt={username}
+            src={userprofile}
             className="message__userProfile"
           ></Avatar>
           <span className="message__username">
