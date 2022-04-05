@@ -28,9 +28,6 @@ const Chats = () => {
   const [userMessage, setUsermessage] = useState("");
   const [userInfo, setUserinfo] = useState([]);
 
-  console.log("userInfo", userInfo);
-  console.log("channelMessages", channelMessages);
-
   const [{ user }, dispatch] = ContextVal();
 
   // for getting the name of current channel

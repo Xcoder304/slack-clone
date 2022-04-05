@@ -19,8 +19,8 @@ const Header = () => {
     <header className="header">
       <div className="header__userAvatar">
         <Avatar
-          alt={user.user.displayName}
-          src={user.user.photoURL}
+          // alt={user?.user?.displayName}
+          src={user?.user?.photoURL}
           className="avatar"
         ></Avatar>
 
