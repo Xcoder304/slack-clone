@@ -7,20 +7,29 @@ import "./Styles/app.css";
 import Header from "./components/Header";
 import SideBar from "./components/sidebar/SideBar";
 import Chats from "./components/chats/chats";
+import { ContextVal } from "./context/Context";
+import Login from "./components/Login";
 
 // packages
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 const App = () => {
+  const [{ user }, dispatch] = ContextVal();
   return (
     <Router>
       <div className="app">
-        <Header />
-        <div className="app__body">
-          <SideBar />
-          <Routes>
-            <Route path="/chats/:channelsID" element={<Chats />} />
-          </Routes>
-        </div>
+        {user ? (
+          <>
+            <Header />
+            <div className="app__body">
+              <SideBar />
+              <Routes>
+                <Route path="/chats/:channelsID" element={<Chats />} />
+              </Routes>
+            </div>
+          </>
+        ) : (
+          <Login />
+        )}
       </div>
     </Router>
   );

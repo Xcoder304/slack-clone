@@ -12,10 +12,14 @@ const SideBarOptions = ({ AddIcon, title, Icon, id }) => {
   const AddChannel = () => {
     const ChennalName = prompt("Please Enter The Chennnal Name");
 
-    addDoc(collection(db, "channels"), {
-      name: ChennalName,
-      time: serverTimestamp(),
-    });
+    if (ChennalName) {
+      addDoc(collection(db, "channels"), {
+        name: ChennalName,
+        time: serverTimestamp(),
+      });
+    } else {
+      alert("sorry try agian");
+    }
   };
 
   const SeleteChannel = () => {

@@ -7,17 +7,21 @@ import Avatar from "@mui/material/Avatar";
 import { BiChevronDown } from "react-icons/bi";
 import { FiSearch } from "react-icons/fi";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
+import { ContextVal } from "../context/Context";
 
 // style
 import "../Styles/header.css";
 
 const Header = () => {
+  const [{ user }, dispatch] = ContextVal();
+
+  console.log(user.user.photoURL);
   return (
     <header className="header">
       <div className="header__userAvatar">
         <Avatar
-          alt="Remy Sharp"
-          src="/broken-image.jpg"
+          alt={user.user.displayName}
+          src={user.user.photoURL}
           className="avatar"
         ></Avatar>
 
